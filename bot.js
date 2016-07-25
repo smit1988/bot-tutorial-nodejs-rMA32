@@ -15,7 +15,7 @@ var ryanQuotes = ["Excited",
   
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegexExams = /^\/exams/;  botRegexKiss = /^\/kiss/;  botRegexBurn = /^\/burn/;  botRegex = /^\/cool guy/;  botRegexBall = /^\/8ball/;  botRegexSpook = /^\/spooky/; botRegexRoll = /^\/roll \/roll/;  botRegexDie = /^\/roll/;  botRegexCoin = /^\/flip a coin/; botRegexMeme = /^\/meme/; botRegexDL = /^\/DDL/i;botRegexSalt = /^\/salt/;botRegexRules = /^\/rules/
+      botRegexExams = /^\/exams/;  botRegexKiss = /^\/kiss/; botRegexGif = /^\/gif/;  botRegexBurn = /^\/burn/;  botRegex = /^\/cool guy/;  botRegexBall = /^\/8ball/;  botRegexSpook = /^\/spooky/; botRegexRoll = /^\/roll \/roll/;  botRegexDie = /^\/roll/;  botRegexCoin = /^\/flip a coin/; botRegexMeme = /^\/meme/; botRegexDL = /^\/DDL/i;botRegexSalt = /^\/salt/;botRegexRules = /^\/rules/
       botRegexReddit = /^\/reddit/;  botRegexPraise = /^\/praise cool guy/;  botRegexAd=/^\/advance/;botRegexGTA = /^\/gta/; botRegexSC = /^\/SDL/i; botODB = /(.*\s+)(.*odb)(\s+.*)/i; botDuck = /^\/duck/;
       botRegexRyan = /^\/ryan/; botRegexSpam = /^\/spam/;  botRegexRyan2 = /^\/Ryan/;  botRegexP = /^\/PDL/i;  botRegexTw = /^\/twitch/i; botRegexSb = /^\/sub/; botRegexSh = /^\/shrug/; botRegexWk = /^\/users/; botRegexCC = /^\/cc/;
       botRegexRyanPurge = /^\/purge/;  botRegexSiege = /^\/siege/;  botRegexStock = /^\/stock/;
@@ -111,6 +111,11 @@ function respond() {
     postMessage("https://i.imgur.com/B5BSVqH.png");
     this.res.end();
   } 
+  else if(request.text && botRegexGif.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("http://replygif.net/i/"+Math.floor((1497*Math.random())+100)+".gif");
+    this.res.end();
+  }
   else if(request.text && botRegexAd.test(request.text)) {
     this.res.writeHead(200);
     postMessage("http://www.hackcollege.com/wp-content/uploads/2013/02/kno_advance.jpg");
