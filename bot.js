@@ -96,7 +96,7 @@ function respond() {
     this.res.end();
     this.res.writeHead(200);
     if((req1 != "✌") && (req1 != "✊") && (req1 != "✋")){
-      postMessage("CALCULATING\n\n" + req2 + " beats " + req1);
+      postMessage("CALCULATING\n\n...\n\n" + req2 + " beats " + req1);
     }
     this.res.end();
   }   
