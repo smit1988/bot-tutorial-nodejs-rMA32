@@ -88,8 +88,15 @@ function respond() {
   }   
   else if(request.text && botRegexRock.test(request.text)) {
     this.res.writeHead(200);
+    var req1 = request.text.substring(18,request.text.length);
+    req1 = req1.trim();
     var rockQuotes = ["✌","✊","✋"];
-    postMessage(rockQuotes[Math.floor(Math.random() * 3)]);
+    var req2 = rockQuotes[Math.floor(Math.random() * 3)];
+    postMessage(req2);
+    if((req1 != "✌") && (req1 != "✊") && (req1 != "✋")){
+      postMessage("CALCULATING");
+      postMessage(req2 + " beats " + req1);
+    }
     this.res.end();
   }   
   else if(request.text && botRegexSpam.test(request.text)) {
