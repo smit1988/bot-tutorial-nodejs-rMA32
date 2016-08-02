@@ -93,6 +93,8 @@ function respond() {
     var rockQuotes = ["✌","✊","✋"];
     var req2 = rockQuotes[Math.floor(Math.random() * 3)];
     postMessage(req2);
+    this.res.end();
+    this.res.writeHead(200);
     if((req1 != "✌") && (req1 != "✊") && (req1 != "✋")){
       postMessage("CALCULATING\n\n" + req2 + " beats " + req1);
     }
