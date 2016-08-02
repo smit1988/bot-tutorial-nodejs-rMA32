@@ -13,6 +13,15 @@ var ryanQuotes = ["Excited",
                     "I'm just here for the memes",
                     "Noah Smith, what a damn good fella","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""];
   
+function sleep(milliseconds){
+  var start = new Date().getTime();
+  for(var i=0; i<1e7;i++){
+    if((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}  
+  
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegexExams = /^\/exams/;  botRegexKiss = /^\/kiss/;  botRegexRock = /^\/rockpaperscissors/; botRegexGif = /^\/gif/;  botRegexBurn = /^\/burn/;  botRegex = /^\/cool guy/;  botRegexBall = /^\/8ball/;  botRegexSpook = /^\/spooky/; botRegexRoll = /^\/roll \/roll/;  botRegexDie = /^\/roll/;  botRegexCoin = /^\/flip a coin/; botRegexMeme = /^\/meme/; botRegexDL = /^\/DDL/i;botRegexSalt = /^\/salt/;botRegexRules = /^\/rules/
@@ -93,8 +102,7 @@ function respond() {
     var rockQuotes = ["✌","✊","✋"];
     var req2 = rockQuotes[Math.floor(Math.random() * 3)];
     postMessage(req2);
-    this.res.end();
-    this.res.writeHead(200);
+    sleep(1000);
     if((req1 != "✌") && (req1 != "✊") && (req1 != "✋")){
       postMessage("CALCULATING\n\n...\n\n" + req2 + " beats " + req1);
     }
