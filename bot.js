@@ -63,8 +63,9 @@ function respond() {
   
   var awake = "";
   
-  //while(1==1){
-  //if(awake != request.text){
+  this.res.writeHead(200);
+  postMessage(request.text);
+  this.res.end();
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage(cool());
