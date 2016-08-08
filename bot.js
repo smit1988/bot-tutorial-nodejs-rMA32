@@ -84,7 +84,8 @@ function respond() {
   else if(request.text && botRegexRandom.test(request.text)) {
     this.res.writeHead(200);
     var commandNumber = Math.floor(Math.random() * randomCommands.length);
-    var commandText = randomCommands[commandNumber].substring(3,randomCommands[commandNumber].length - 1);
+    var commandText = randomCommands[commandNumber].toString();
+    commandText = commandText.substring(3,commandText.length - 1);
     postMessage(commandText);
     this.res.end();
   } 
