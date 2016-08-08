@@ -60,6 +60,9 @@ function respond() {
                     "He woke up next to a strange woman in his bed. Or is it her bed? Definitely her bed. Oh god she's hideous, better bounce. He looked for a piece of paper to leave a note. He didn't even know this woman, what should he write? Oh good her ID. Susie? Okay well here it goes.\n'Dear Susie...'"];
   
   var awake = "";
+  this.res.writeHead(200);
+  postMessage(botRegexExams.toString());
+  this.res.end();
   
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
