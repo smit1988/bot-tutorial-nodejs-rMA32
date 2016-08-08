@@ -24,12 +24,10 @@ function sleep(milliseconds){
   
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegexExams = /^\/exams/;  botRegexNumber = /^\/number/;  botRegexHeart = /^\/totalhearts/;  botRegexKiss = /^\/kiss/;  botRegexRock = /^\/rockpaperscissors/; botRegexGif = /^\/gif/;  botRegexBurn = /^\/burn/;  botRegex = /^\/cool guy/;  botRegexBall = /^\/8ball/;  botRegexSpook = /^\/spooky/; botRegexRoll = /^\/roll \/roll/;  botRegexDie = /^\/roll/;  botRegexCoin = /^\/flip a coin/; botRegexMeme = /^\/meme/; botRegexDL = /^\/DDL/i;botRegexSalt = /^\/salt/;botRegexRules = /^\/rules/
-      botRegexReddit = /^\/reddit/;  botRegexPraise = /^\/praise cool guy/;  botRegexAd=/^\/advance/;botRegexGTA = /^\/gta/; botRegexSC = /^\/SDL/i; botODB = /(.*\s+)(.*odb)(\s+.*)/i; botDuck = /^\/duck/;
-      botRegexRyan = /^\/ryan/; botRegexSpam = /^\/spam/;  botRegexRyan2 = /^\/Ryan/;  botRegexP = /^\/PDL/i;  botRegexTw = /^\/twitch/i; botRegexSb = /^\/sub/; botRegexSh = /^\/shrug/; botRegexWk = /^\/users/; botRegexCC = /^\/cc/;
-      botRegexRyanPurge = /^\/purge/;  botRegexSiege = /^\/siege/;  botRegexStock = /^\/stock/;
-      siege1 = 'https://i.groupme.com/350x419.png.adc8c73a6c1547e0a9e04320296329f8'; siege2 = 'https://i.groupme.com/1279x752.jpeg.aa5d0401e0df495bba4b4e09dc5a6bd7'
-      siege3 = 'https://i.groupme.com/960x960.png.006e180e05d841c6a2962e844bf1e6fd';
+      botRegexExams = /^\/exams/;  botRegexNumber = /^\/number/;  botRegexHeart = /^\/totalhearts/;  botRegexKiss = /^\/kiss/;  botRegexRock = /^\/rockpaperscissors/; botRegexGif = /^\/gif/;  botRegexBurn = /^\/burn/;  botRegex = /^\/cool guy/;  botRegexBall = /^\/8ball/;  botRegexSpook = /^\/spooky/; botRegexRoll = /^\/roll \/roll/;  botRegexDie = /^\/roll/;  botRegexCoin = /^\/flip a coin/; botRegexMeme = /^\/meme/; botRegexSalt = /^\/salt/;
+      botRegexPraise = /^\/praise cool guy/; botDuck = /^\/duck/;
+      botRegexRyan = /^\/ryan/; botRegexSpam = /^\/spam/;  botRegexRyan2 = /^\/Ryan/;  botRegexSh = /^\/shrug/;
+      botRegexRyanPurge = /^\/purge/; 
   var mockQuotes = ["911 What is your emergency?",
                     "With nowhere else to turn, he got on his knees and prayed",
                     "He was happy to answer the little girl's question. He bent down and said to her",
@@ -62,6 +60,9 @@ function respond() {
                     "He woke up next to a strange woman in his bed. Or is it her bed? Definitely her bed. Oh god she's hideous, better bounce. He looked for a piece of paper to leave a note. He didn't even know this woman, what should he write? Oh good her ID. Susie? Okay well here it goes.\n'Dear Susie...'"];
   
   var awake = "";
+  this.res.writeHead(200);
+  postMessage(botRegexExams);
+  this.res.end();
   
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
@@ -106,11 +107,6 @@ function respond() {
     }
     postMessage(quotelist);
     this.res.end();
-  } 
-  else if(request.text && botRegexReddit.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("http://www.reddit.com/r/pics/top.json");
-    this.res.end();
   }   
   else if(request.text && botRegexRock.test(request.text)) {
     this.res.writeHead(200);
@@ -140,11 +136,6 @@ function respond() {
     postMessage("http://i.imgur.com/c4jt321.png");
     this.res.end();
   }  
-  else if(request.text && botRegexDL.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("http://daddyleagues.com/SRMFL/team/"+request.text.substring(5,8)+"/depthchart");
-    this.res.end();
-  } 
   else if(request.text && botRegexSalt.test(request.text)) {
     this.res.writeHead(200);
     postMessage("https://i.imgur.com/B5BSVqH.png");
@@ -155,67 +146,14 @@ function respond() {
     postMessage("http://replygif.net/i/"+Math.floor((1497*Math.random())+100)+".gif");
     this.res.end();
   }
-  else if(request.text && botRegexAd.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("http://www.hackcollege.com/wp-content/uploads/2013/02/kno_advance.jpg");
-    this.res.end();
-  }
-  else if(request.text && botRegexRules.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("https://docs.google.com/document/d/1hSuEG7oplnx4IX6HGsMOjsWb9TCqC4-F1NLjuBz5PCM/edit");
-    this.res.end();
-  } 
-  else if(request.text && botRegexGTA.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("https://i.groupme.com/220x147.jpeg.a2dd2add32b14fff9e329535186d793c.large");
-    this.res.end();
-  } 
-  else if(request.text && botRegexSC.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("http://daddyleagues.com/SRMFL/team/"+request.text.substring(5,8)+"/schedule");
-    this.res.end();
-  }
-  else if(request.text && botRegexP.test(request.text)) {
-    this.res.writeHead(200);
-    var req = request.text.substring(5,request.text.length);
-    var rep = req.replace(/ /,"+");
-    postMessage("http://daddyleagues.com/SRMFL/players?name="+rep+"&position=all&team=all");
-    this.res.end();
-  }  
-
-  else if(request.text && botRegexTw.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("http://www.twitch.tv/"+request.text.substring(8,request.text.length));
-    this.res.end();
-  } 
-  else if(request.text && botRegexSb.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("http://www.reddit.com/r/maddenall32");
-    this.res.end();
-  } 
   else if(request.text && botRegexSh.test(request.text)) {
     this.res.writeHead(200);
     postMessage("¯\\_(ツ)_/¯");
     this.res.end();
   } 
-  else if(request.text && botRegexWk.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("https://docs.google.com/spreadsheets/d/1kJqQWCq3RKiTrd4f71FFNKr-Y0ppJzjk0fSF0rP6Bto/edit?usp=sharing");
-    this.res.end();
-  } 
-  else if(request.text && botODB.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("OBJ*");
-    this.res.end();
-  } 
   else if(request.text && botDuck.test(request.text)) {
     this.res.writeHead(200);
     postMessage("http://media3.giphy.com/media/YCseTHF2I6CCA/giphy.gif");
-    this.res.end();
-  }
-  else if(request.text && botRegexCC.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("https://i.groupme.com/851x1184.jpeg.330228901f684b0cb46cd1cef6953923");
     this.res.end();
   }
   else if(request.text.substring(0,5) && botRegexBall.test(request.text)) {
@@ -231,14 +169,6 @@ function respond() {
     postMessage("http://www.memecreator.org/static/images/memes/38"+rand()+rand()+rand()+rand()+rand()+".jpg");
     this.res.end();
   }
-  else if(request.text && botRegexStock.test(request.text)) {
-    this.res.writeHead(200);
-    function rand(){
-      return Math.floor(Math.random() * 10);
-    }
-    postMessage("http://comps.canstockphoto.com/can-stock-photo_csp"+Math.floor(Math.random() * 8)+rand()+rand()+rand()+rand()+rand()+rand()+".jpg");
-    this.res.end();
-  } 
   else if(request.text && botRegexRoll.test(request.text)) {
     this.res.writeHead(200);
     postMessage(request.name + " has been banned for /rolling https://www.youtube.com/watch?v=dQw4w9WgXcQ");
@@ -270,16 +200,6 @@ function respond() {
   else if(request.text && botRegexKiss.test(request.text)) {
     this.res.writeHead(200);
     postMessage("lol no homo");
-    this.res.end();
-  }
-  else if(request.text && botRegexSiege.test(request.text)) {
-    this.res.writeHead(200);
-    if(0.6 >= Math.random() > 0.3)
-      postMessage(siege1);
-    else if(Math.random() >0.6)
-      postMessage(siege3)
-    else
-      postMessage(siege2);
     this.res.end();
   }
   else if(request.name == "Ryan Sharkey") {
