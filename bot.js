@@ -24,10 +24,12 @@ function sleep(milliseconds){
   
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegexExams = /^\/exams/;  botRegexNumber = /^\/number/;  botRegexHeart = /^\/totalhearts/;  botRegexKiss = /^\/kiss/;  botRegexRock = /^\/rockpaperscissors/; botRegexGif = /^\/gif/;  botRegexBurn = /^\/burn/;  botRegex = /^\/cool guy/;  botRegexBall = /^\/8ball/;  botRegexSpook = /^\/spooky/; botRegexRoll = /^\/roll \/roll/;  botRegexDie = /^\/roll/;  botRegexCoin = /^\/flip a coin/; botRegexMeme = /^\/meme/; botRegexSalt = /^\/salt/;
-      botRegexPraise = /^\/praise cool guy/; botDuck = /^\/duck/;
-      botRegexRyan = /^\/ryan/i; botRegexSpam = /^\/spam/;  botRegexSh = /^\/shrug/;
-      botRegexRyanPurge = /^\/purge/; 
+      botRegexExams = /^\/exams/;  botRegexNumber = /^\/number/;  botRegexHeart = /^\/totalhearts/;  botRegexKiss = /^\/kiss/;  botRegexRock = /^\/rockpaperscissors/; botRegexGif = /^\/gif/;
+      botRegexBurn = /^\/burn/;  botRegex = /^\/cool guy/;  botRegexBall = /^\/8ball/;  botRegexSpook = /^\/spooky/; botRegexRoll = /^\/roll \/roll/;  botRegexDie = /^\/roll/;  
+      botRegexCoin = /^\/flip a coin/; botRegexMeme = /^\/meme/; botRegexSalt = /^\/salt/; botRegexPraise = /^\/praise cool guy/; botDuck = /^\/duck/;
+      botRegexRyan = /^\/ryan/i; botRegexSpam = /^\/spam/;  botRegexSh = /^\/shrug/; botRegexRyanPurge = /^\/purge/; botRegexRandom = /^\/random/; 
+  var randomCommands = [botRegexExams, botRegexNumber, botRegexHeart, botRegexKiss, botRegexRock, botRegexGif, botRegexBurn, botRegex, botRegexBall, botRegexSpook, botRegexRoll, botRegexDie,
+                        botRegexCoin, botRegexMeme, botRegexSalt, botRegexPraise, botDuck, botRegexRyan, botRegexSpam, botRegexSh, botRegexRyanPurge];
   var mockQuotes = ["911 What is your emergency?",
                     "With nowhere else to turn, he got on his knees and prayed",
                     "He was happy to answer the little girl's question. He bent down and said to her",
@@ -77,6 +79,13 @@ function respond() {
   else if(request.text && botRegexHeart.test(request.text)) {
     this.res.writeHead(200);
     postMessage("Idk. Like..." + Math.floor(Math.random() * 5000) + "?");
+    this.res.end();
+  }  
+  else if(request.text && botRegexRandom.test(request.text)) {
+    this.res.writeHead(200);
+    var commandNumber = Math.floor(Math.random() * randomCommands.length);
+    var commandText = randomCommands[commandNumber].substring(3,randomCommands[commandNumber].length - 1);
+    postMessage(commandText);
     this.res.end();
   } 
   else if(request.text && botRegexNumber.test(request.text)) {
