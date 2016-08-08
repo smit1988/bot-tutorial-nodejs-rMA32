@@ -26,7 +26,7 @@ function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegexExams = /^\/exams/;  botRegexNumber = /^\/number/;  botRegexHeart = /^\/totalhearts/;  botRegexKiss = /^\/kiss/;  botRegexRock = /^\/rockpaperscissors/; botRegexGif = /^\/gif/;  botRegexBurn = /^\/burn/;  botRegex = /^\/cool guy/;  botRegexBall = /^\/8ball/;  botRegexSpook = /^\/spooky/; botRegexRoll = /^\/roll \/roll/;  botRegexDie = /^\/roll/;  botRegexCoin = /^\/flip a coin/; botRegexMeme = /^\/meme/; botRegexSalt = /^\/salt/;
       botRegexPraise = /^\/praise cool guy/; botDuck = /^\/duck/;
-      botRegexRyan = /^\/ryan/; botRegexSpam = /^\/spam/;  botRegexRyan2 = /^\/Ryan/;  botRegexSh = /^\/shrug/;
+      botRegexRyan = /^\/ryan/i; botRegexSpam = /^\/spam/;  botRegexSh = /^\/shrug/;
       botRegexRyanPurge = /^\/purge/; 
   var mockQuotes = ["911 What is your emergency?",
                     "With nowhere else to turn, he got on his knees and prayed",
@@ -66,7 +66,7 @@ function respond() {
     postMessage(cool());
     this.res.end();
   } 
-  else if(request.text && (botRegexRyan.test(request.text) || botRegexRyan2.test(request.text))) {
+  else if(request.text && botRegexRyan.test(request.text)) {
     this.res.writeHead(200);
     var randomQuote = "";
     while(randomQuote == ""){
@@ -140,9 +140,7 @@ function respond() {
   } 
   else if(request.text && botRegexGif.test(request.text)) {
     this.res.writeHead(200);
-    postMessage(botRegexExams);
     postMessage("http://replygif.net/i/"+Math.floor((1497*Math.random())+100)+".gif");
-    postMessage(botRegexExams);
     this.res.end();
   }
   else if(request.text && botRegexSh.test(request.text)) {
