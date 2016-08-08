@@ -28,7 +28,7 @@ function respond() {
       botRegexBurn = /^\/burn/;  botRegex = /^\/cool guy/;  botRegexBall = /^\/8ball/;  botRegexSpook = /^\/spooky/; botRegexRoll = /^\/roll \/roll/;  botRegexDie = /^\/roll/;  
       botRegexCoin = /^\/flip a coin/; botRegexMeme = /^\/meme/; botRegexSalt = /^\/salt/; botRegexPraise = /^\/praise cool guy/; botDuck = /^\/duck/;
       botRegexRyan = /^\/ryan/i; botRegexSpam = /^\/spam/;  botRegexSh = /^\/shrug/; botRegexRyanPurge = /^\/purge/; botRegexRandom = /^\/random/; botRegexRandomSpam = /^\/randomspam/; 
-  var randomCommands = [botRegexExams, botRegexNumber, botRegexHeart, botRegexKiss, botRegexRock, botRegexGif, botRegexBurn, botRegex, botRegexBall, botRegexSpook, botRegexRoll, botRegexDie,
+  var randomCommands = [botRegexExams, botRegexNumber, botRegexHeart, botRegexKiss, botRegexRock, botRegexGif, botRegexBurn, botRegex, botRegexBall, botRegexSpook, botRegexDie,
                         botRegexCoin, botRegexMeme, botRegexSalt, botRegexPraise, botDuck, botRegexRyan, botRegexSpam, botRegexSh, botRegexRyanPurge];
   var mockQuotes = ["911 What is your emergency?",
                     "With nowhere else to turn, he got on his knees and prayed",
@@ -86,11 +86,18 @@ function respond() {
     var aRandomNumber = (Math.floor(Math.random() * 10) + 1);
     var commandNumber1 = 0;
     var commandText1 = "";
+    var commandText2 = "";
     for(var k = 0; k < aRandomNumber; k++){
       commandNumber1 = Math.floor(Math.random() * randomCommands.length);
       commandText1 = randomCommands[commandNumber1].toString();
       commandText1 = commandText1.substring(3,commandText1.length - 1);
-      postMessage(commandText1);
+      commandText2 = commandText2 + " " + commandText1;
+    }
+    postMessage(commandText2);
+    for(k = 0; k < (aRandomNumber - 1); k++){
+      commandText2 = commandText2.substring(1,commandText2.length);
+      commandText2 = commandText2.substring(commandText2.indexOf("/"), commandText2.length);
+      postMessage(commandText2);
     }
     this.res.end();
   } 
