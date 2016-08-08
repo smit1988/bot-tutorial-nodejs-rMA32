@@ -86,19 +86,23 @@ function respond() {
     var aRandomNumber = (Math.floor(Math.random() * 10) + 1);
     var commandNumber1 = 0;
     var commandText1 = "";
-    var commandText2 = "";
+    //var commandText2 = "";
     for(var k = 0; k < aRandomNumber; k++){
       commandNumber1 = Math.floor(Math.random() * randomCommands.length);
       commandText1 = randomCommands[commandNumber1].toString();
       commandText1 = commandText1.substring(3,commandText1.length - 1);
-      commandText2 = commandText2 + " " + commandText1;
+      postMessage(commandText1);
+      //commandText2 = commandText2 + " " + commandText1;
     }
+    /*
+    //this part didnt' work
+    //ryan/i causes problems
     postMessage(commandText2);
     for(k = 0; k < (aRandomNumber - 1); k++){
       commandText2 = commandText2.substring(1,commandText2.length);
       commandText2 = commandText2.substring(commandText2.indexOf("/"), commandText2.length);
       postMessage(commandText2);
-    }
+    }*/
     this.res.end();
   } 
   else if(request.text && botRegexRandom.test(request.text)) {
