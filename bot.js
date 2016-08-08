@@ -24,7 +24,7 @@ function sleep(milliseconds){
   
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegexExams = /^\/exams/;  botRegexKiss = /^\/kiss/;  botRegexRock = /^\/rockpaperscissors/; botRegexGif = /^\/gif/;  botRegexBurn = /^\/burn/;  botRegex = /^\/cool guy/;  botRegexBall = /^\/8ball/;  botRegexSpook = /^\/spooky/; botRegexRoll = /^\/roll \/roll/;  botRegexDie = /^\/roll/;  botRegexCoin = /^\/flip a coin/; botRegexMeme = /^\/meme/; botRegexDL = /^\/DDL/i;botRegexSalt = /^\/salt/;botRegexRules = /^\/rules/
+      botRegexExams = /^\/exams/;  botRegexHeart = /^\/totalhearts/;  botRegexKiss = /^\/kiss/;  botRegexRock = /^\/rockpaperscissors/; botRegexGif = /^\/gif/;  botRegexBurn = /^\/burn/;  botRegex = /^\/cool guy/;  botRegexBall = /^\/8ball/;  botRegexSpook = /^\/spooky/; botRegexRoll = /^\/roll \/roll/;  botRegexDie = /^\/roll/;  botRegexCoin = /^\/flip a coin/; botRegexMeme = /^\/meme/; botRegexDL = /^\/DDL/i;botRegexSalt = /^\/salt/;botRegexRules = /^\/rules/
       botRegexReddit = /^\/reddit/;  botRegexPraise = /^\/praise cool guy/;  botRegexAd=/^\/advance/;botRegexGTA = /^\/gta/; botRegexSC = /^\/SDL/i; botODB = /(.*\s+)(.*odb)(\s+.*)/i; botDuck = /^\/duck/;
       botRegexRyan = /^\/ryan/; botRegexSpam = /^\/spam/;  botRegexRyan2 = /^\/Ryan/;  botRegexP = /^\/PDL/i;  botRegexTw = /^\/twitch/i; botRegexSb = /^\/sub/; botRegexSh = /^\/shrug/; botRegexWk = /^\/users/; botRegexCC = /^\/cc/;
       botRegexRyanPurge = /^\/purge/;  botRegexSiege = /^\/siege/;  botRegexStock = /^\/stock/;
@@ -75,6 +75,11 @@ function respond() {
       randomQuote = ryanQuotes[Math.floor(Math.random() * 100)];
     }
     postMessage(mockQuotes[Math.floor(Math.random() * 30)] + "\n'" + randomQuote + "'");
+    this.res.end();
+  }  
+  else if(request.text && botRegexHeart.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("Idk. Like..." + Math.floor(Math.random() * 5000) + "?");
     this.res.end();
   }  
   else if(request.text && botRegexRyanPurge.test(request.text)) {
