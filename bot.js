@@ -27,7 +27,7 @@ function respond() {
       botRegexExams = /^\/exams/;  botRegexNumber = /^\/number/;  botRegexHeart = /^\/totalhearts/;  botRegexKiss = /^\/kiss/;  botRegexRock = /^\/rockpaperscissors/; botRegexGif = /^\/gif/;
       botRegexBurn = /^\/burn/;  botRegex = /^\/cool guy/;  botRegexBall = /^\/8ball/;  botRegexSpook = /^\/spooky/; botRegexRoll = /^\/roll \/roll/;  botRegexDie = /^\/roll/;  
       botRegexCoin = /^\/flip a coin/; botRegexMeme = /^\/meme/; botRegexSalt = /^\/salt/; botRegexPraise = /^\/praise cool guy/; botDuck = /^\/duck/;
-      botRegexRyan = /^\/ryan/i; botRegexSpam = /^\/spam/;  botRegexSh = /^\/shrug/; botRegexRyanPurge = /^\/purge/; botRegexRandom = /^\/random/; 
+      botRegexRyan = /^\/ryan/i; botRegexSpam = /^\/spam/;  botRegexSh = /^\/shrug/; botRegexRyanPurge = /^\/purge/; botRegexRandom = /^\/random/; botRegexRandomSpam = /^\/randomspam/; 
   var randomCommands = [botRegexExams, botRegexNumber, botRegexHeart, botRegexKiss, botRegexRock, botRegexGif, botRegexBurn, botRegex, botRegexBall, botRegexSpook, botRegexRoll, botRegexDie,
                         botRegexCoin, botRegexMeme, botRegexSalt, botRegexPraise, botDuck, botRegexRyan, botRegexSpam, botRegexSh, botRegexRyanPurge];
   var mockQuotes = ["911 What is your emergency?",
@@ -80,7 +80,20 @@ function respond() {
     this.res.writeHead(200);
     postMessage("Idk. Like..." + Math.floor(Math.random() * 5000) + "?");
     this.res.end();
-  }  
+  }   
+  else if(request.text && botRegexRandomSpam.test(request.text)) {
+    this.res.writeHead(200);
+    var aRandomNumber = (Math.floor(Math.random() * 10) + 1);
+    var commandNumber1 = 0;
+    var commandText1 = "";
+    for(var k = 0; k < aRandomNumber; k++){
+      commandNumber1 = Math.floor(Math.random() * randomCommands.length);
+      commandText1 = randomCommands[commandNumber1].toString();
+      commandText1 = commandText1.substring(3,commandText1.length - 1);
+      postMessage(commandText1);
+    }
+    this.res.end();
+  } 
   else if(request.text && botRegexRandom.test(request.text)) {
     this.res.writeHead(200);
     var commandNumber = Math.floor(Math.random() * randomCommands.length);
