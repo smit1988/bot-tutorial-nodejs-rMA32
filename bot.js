@@ -63,9 +63,7 @@ function respond() {
   
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
-    postMessage(botRegexExams);
     postMessage(cool());
-    postMessage(botRegexExams);
     this.res.end();
   } 
   else if(request.text && (botRegexRyan.test(request.text) || botRegexRyan2.test(request.text))) {
@@ -142,7 +140,9 @@ function respond() {
   } 
   else if(request.text && botRegexGif.test(request.text)) {
     this.res.writeHead(200);
+    postMessage(botRegexExams);
     postMessage("http://replygif.net/i/"+Math.floor((1497*Math.random())+100)+".gif");
+    postMessage(botRegexExams);
     this.res.end();
   }
   else if(request.text && botRegexSh.test(request.text)) {
