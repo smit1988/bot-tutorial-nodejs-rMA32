@@ -27,9 +27,9 @@ function respond() {
       botRegexExams = /^\/exams/;  botRegexNumber = /^\/number/;  botRegexHeart = /^\/totalhearts/;  botRegexKiss = /^\/kiss/;  botRegexRock = /^\/rockpaperscissors/; botRegexGif = /^\/gif/;
       botRegexBurn = /^\/burn/;  botRegex = /^\/cool guy/;  botRegexBall = /^\/8ball/;  botRegexSpook = /^\/spooky/; botRegexRoll = /^\/roll \/roll/;  botRegexDie = /^\/roll/;  
       botRegexCoin = /^\/flip a coin/; botRegexMeme = /^\/meme/; botRegexSalt = /^\/salt/; botRegexPraise = /^\/praise cool guy/; botDuck = /^\/duck/;
-      botRegexRyan = /^\/ryan/i; botRegexSpam = /^\/spam/;  botRegexSh = /^\/shrug/; botRegexRyanPurge = /^\/purge/; botRegexRandom = /^\/random/; botRegexRandomSpam = /^\/randomspam/; 
+      botRegexRyan = /^\/ryan/i; botRegexSpam = /^\/spam/;  botRegexSh = /^\/shrug/; botRegexRyanPurge = /^\/purge/; botRegexRandom = /^\/random/; botRegexRandomSpam = /^\/randomspam/; botRegexEmoji = /^\/rockpaperemoji/; 
   var randomCommands = [botRegexExams, botRegexNumber, botRegexHeart, botRegexKiss, botRegexRock, botRegexGif, botRegexBurn, botRegex, botRegexBall, botRegexSpook, botRegexDie,
-                        botRegexCoin, botRegexMeme, botRegexSalt, botRegexPraise, botDuck, botRegexRyan, botRegexSpam, botRegexSh, botRegexRyanPurge];
+                        botRegexCoin, botRegexMeme, botRegexSalt, botRegexPraise, botDuck, botRegexRyan, botRegexSpam, botRegexSh, botRegexEmoji];
   var mockQuotes = ["911 What is your emergency?",
                     "With nowhere else to turn, he got on his knees and prayed",
                     "He was happy to answer the little girl's question. He bent down and said to her",
@@ -150,8 +150,23 @@ function respond() {
       postMessage("CALCULATING\n\n...\n\n" + req2 + " beats " + req1);
     }
     this.res.end();
-  }   
-  else if(request.text && botRegexSpam.test(request.text)) {
+  }  
+    else if(request.text && botRegexEmoji.test(request.text)) {
+    this.res.writeHead(200);
+    var emojiList = "😄😃😊☺😉😍😘😚😜😝😳😁😔😌😒😞😣😢😂😭😪😥😰😅😓😩😫😨😱😠😡😤😖😆😋😷😎😵😲😈👿😐😶😇😏👲👳👮👷💂👶👦👧👨👩👴👵👱👼👸😺😸😻😽😼🙀😿😹😾👹👺🙈🙉🙊💀👽💩🔥✨🌟💫💥💢💦💧💤💨👂👀👃👅👄👍👎👌👊✊✌👋✋👐👆👇👉👈🙌🙏☝👏💪🚶🏃💃👫👪💏💑👯🙆🙅💁🙋💆💇💅👰🙎🙍🙇🎩👑👒👟👞👡👠👢👕👔👚👗🎽👖👘👙💼👜👝👛👓🎀🌂💄💛💙💜💚❤💔💗💓💕💖💞💘💌💋💍💎👤💬👣🐶🐺🐱🐭🐹🐰🐸🐯🐨🐻🐷🐽🐮🐗🐵🐒🐴🐑🐘🐼🐧🐦🐤🐥🐣🐔🐍🐢🐛🐝🐜🐞🐌🐙🐚🐠🐟🐬🐳🐎🐲🐡🐫🐩🐾💐🌸🌷🍀🌹🌻🌺🍁🍃🍂🌿🌾🍄🌵🌴🌰🌱🌼🌑🌓🌔🌕🌛🌙🌏🌋🌌🌠⭐☀⛅☁⚡☔❄⛄🌀🌁🌈🌊🎍💝🎎🎒🎓🎏🎆🎇🎐🎑🎃👻🎅🎄🎁🎋🎉🎊🎈🎌🔮🎥📷📹📼💿📀💽💾💻📱☎📞📟📠📡📺📻🔊🔔📢📣⏳⌛⏰⌚🔓🔒🔏🔐🔑🔎💡🔦🔌🔋🔍🛀🚽🔧🔩🔨🚪🚬💣🔫🔪💊💉💰💴💵💳💸📲📧📥📤✉📩📨📫📪📮📦📝📄📃📑📊📈📉📜📋📅📆📇📁📂✂📌📎✒✏📏📐📕📗📘📙📓📔📒📚📖🔖📛📰🎨🎬🎤🎧🎼🎵🎶🎹🎻🎺🎷🎸👾🎮🃏🎴🀄🎲🎯🏈🏀⚽⚾🎾🎱🏉🎳⛳☕🍵🍶🍺🍻🍸🍹🍷🍴🍕🍔🍟🍗🍖🍝🍛🍤🍱🍣🍥🍙🍘🍚🍜🍲🍢🍡🍳🍞🍩🍮🍦🍨🍧🎂🍰🍪🍫🍬🍭🍯🍎🍏🍊🍋🍒🍇🍉🍓🍑🍈🍌🍍🍠🍆🍅🌽🏠🏡🏫🏢🏣🏥🏦🏪🏩🏨💒⛪🏬🌇🌆🏯🏰⛺🏭🗼🗾🗻🌄🌅🌃🗽🌉🎠🎡⛲🎢🚢⛵🚤⚓🚀✈💺🚉🚄🚅🚇🚃🚌🚙🚗🚕🚚🚨🚓🚒🚑🚲💈🚏🎫🚥⚠🚧🔰⛽🏮🎰♨🗿🎪🎭📍🚩";
+    var req3 = request.text.substring(15,request.text.length);
+    req3 = req3.trim();
+    var req4 = emojiList.charAt(Math.floor(Math.random() * emojiList.length));
+    postMessage(req4);
+    if(Math.random() < 0.5){
+      postMessage("\n\nCALCULATING\n\n...\n\n" + req4 + " beats " + req3 + "\n🍆🍆🍆YOU LOSE🍆🍆🍆");
+    }
+    else{
+      postMessage("\n\nCALCULATING\n\n...\n\n" + req3 + " beats " + req4 + "\n🎺🎺🎺YOU WIN🎺🎺🎺");
+    }
+    this.res.end();
+  }  
+    else if(request.text && botRegexSpam.test(request.text)) {
     this.res.writeHead(200);
     postMessage(request.name + " has been banned for conspiracy to commit /spam");
     this.res.end();
