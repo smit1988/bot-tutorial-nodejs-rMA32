@@ -157,12 +157,11 @@ function respond() {
     var req3 = request.text.substring(15,request.text.length);
     req3 = req3.trim();
     var req4 = emojiList[Math.floor(Math.random() * emojiList.length)];
-    postMessage(req4);
     if(Math.random() < 0.5){
-      postMessage("\n\nCALCULATING\n\n...\n\n" + req4 + " beats " + req3 + "\n🍆🍆🍆YOU LOSE🍆🍆🍆");
+      postMessage(req4 + "\n\nCALCULATING\n\n...\n\n" + req4 + " beats " + req3 + "\n🍆🍆🍆YOU LOSE🍆🍆🍆");
     }
     else{
-      postMessage("\n\nCALCULATING\n\n...\n\n" + req3 + " beats " + req4 + "\n🎺🎺🎺YOU WIN🎺🎺🎺");
+      postMessage(req4 + "\n\nCALCULATING\n\n...\n\n" + req3 + " beats " + req4 + "\n🎺🎺🎺YOU WIN🎺🎺🎺");
     }
     this.res.end();
   }  
