@@ -91,7 +91,7 @@ function respond() {
     str = request.text.substring(10, request.text.length);
     num = parseInt(str, 10);
     if(isNaN(num)){
-      postMessage(str + " is not a number");
+      postMessage(" " + str + " is not a number");
     }
     else if(num > 450){
       postMessage("Gurl, that is TOO many emojis *laugh track*");
