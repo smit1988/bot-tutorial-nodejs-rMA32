@@ -89,10 +89,8 @@ function respond() {
     str = "";
     num = 0;
     str = request.text.substring(10, request.text.length);
-    postMessage("3" + str);
     num = parseInt(str, 10);
-    postMessage("4");
-    /*if(isNaN(num)){
+    if(isNaN(num)){
       postMessage(str + " is not a number");
     }
     else if(num > 450){
@@ -105,7 +103,6 @@ function respond() {
       }
       postMessage(str);
     }
-    postMessage("5");*/
     this.res.end();
   }   
   else if(request.text && botRegexRandomSpam.test(request.text)) {
