@@ -88,7 +88,7 @@ function respond() {
     this.res.writeHead(200);
     str = "";
     num = 0;
-    str = request.text.substring(10, request.text.length);
+    str = request.text.substring(10, request.text.length - 1);
     num = parseInt(str, 10);
     if(isNaN(num)){
       postMessage(str + " is not a number");
