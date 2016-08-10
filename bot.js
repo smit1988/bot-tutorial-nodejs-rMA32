@@ -93,7 +93,7 @@ function respond() {
     if(isNaN(num)){
       postMessage(" " + str + " is not a number");
     }
-    else if(num > 2000){
+    else if(num > 450){
       postMessage("Gurl, that is TOO many emojis *laugh track*");
     }
     else{
