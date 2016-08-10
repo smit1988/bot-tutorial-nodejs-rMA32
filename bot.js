@@ -86,10 +86,14 @@ function respond() {
   }    
   else if(request.text && botRegexEmojiSpam.test(request.text)) {
     this.res.writeHead(200);
+    postMessage("1");
     str = "";
     num = 0;
+    postMessage("2");
     str = request.text.substring(10, request.text.length);
+    postMessage("3" + str);
     num = str.parseInt();
+    postMessage("4");
     if(isNaN(num)){
       postMessage(str + " is not a number");
     }
@@ -103,6 +107,7 @@ function respond() {
       }
       postMessage(str);
     }
+    postMessage("5");
     this.res.end();
   }   
   else if(request.text && botRegexRandomSpam.test(request.text)) {
