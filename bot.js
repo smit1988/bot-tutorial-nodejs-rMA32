@@ -28,9 +28,10 @@ function respond() {
       botRegexBurn = /^\/burn/;  botRegex = /^\/cool guy/;  botRegexBall = /^\/8ball/;  botRegexSpook = /^\/spooky/; botRegexRoll = /^\/roll \/roll/;  botRegexDie = /^\/roll/;  
       botRegexCoin = /^\/flip a coin/; botRegexMeme = /^\/meme/; botRegexSalt = /^\/salt/; botRegexPraise = /^\/praise cool guy/; botDuck = /^\/duck/;
       botRegexRyan = /^\/ryan/i; botRegexSpam = /^\/spam/;  botRegexSh = /^\/shrug/; botRegexRyanPurge = /^\/purge/; botRegexRandom = /^\/random/; botRegexRandomSpam = /^\/randomspam/; botRegexEmoji = /^\/rockpaperemoji/; 
-      botRegexEmojiSpam = /^\/emojispam/;
+      botRegexEmojiSpam = /^\/emojispam/; botRegexRemind = /^\/remind me to/;
   var randomCommands = [botRegexExams, botRegexNumber, botRegexHeart, botRegexKiss, botRegexRock, botRegexGif, botRegexBurn, botRegex, botRegexBall, botRegexSpook, botRegexDie,
-                        botRegexCoin, botRegexMeme, botRegexSalt, botRegexPraise, botDuck, botRegexRyan, botRegexSpam, botRegexSh, botRegexEmoji, botRegexEmojiSpam];
+                        botRegexCoin, botRegexMeme, botRegexSalt, botRegexPraise, botDuck, botRegexRyan, botRegexSpam, botRegexSh, botRegexEmoji, botRegexEmojiSpam,
+                        botRegexRemind];
   var mockQuotes = ["911 What is your emergency?",
                     "With nowhere else to turn, he got on his knees and prayed",
                     "He was happy to answer the little girl's question. He bent down and said to her",
@@ -161,7 +162,14 @@ function respond() {
     }
     postMessage(quotelist);
     this.res.end();
-  }   
+  }  
+  else if(request.text && botRegexRemind.test(request.text)) {
+    this.res.writeHead(200);
+    str = request.text.substring(13,request.text.length);
+    str = str.trim();
+    postMessage("Hey " + request.name + ", " + str);
+    this.res.end();
+  }  
   else if(request.text && botRegexRock.test(request.text)) {
     this.res.writeHead(200);
     var req1 = request.text.substring(18,request.text.length);
