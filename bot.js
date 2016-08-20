@@ -168,7 +168,7 @@ function respond() {
     str = request.text.substring(13,request.text.length);
     str = str.trim();
     str = str.replace("my", "your");
-    str = str.replace("me ", "you ");
+    str = str.replace(" me ", " you ");
     postMessage("Hey " + request.name + ", " + str);
     this.res.end();
   }  
