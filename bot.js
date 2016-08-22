@@ -3,7 +3,8 @@ var cool = require('cool-ascii-faces');
 
 var botID = process.env.BOT_ID;
 var spamcount = 0;
-var dateObject = new Date();
+var dateStart = new Date();
+var dateCurrent = new Date();
 
 var ryanQuotes = ["Excited",
                     "Kk",
@@ -14,7 +15,10 @@ var ryanQuotes = ["Excited",
                     "I'm just here for the memes",
                     "Noah Smith, what a damn good fella","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""];
   
-
+function dateUpdate(){
+  var dateNow = new Date();
+  dateCurrent = dateNow;
+}
 function sleep(milliseconds){
   var start = new Date().getTime();
   for(var i=0; i<1e7;i++){
@@ -218,7 +222,8 @@ function respond() {
   }    
   else if(request.text && botRegexTime.test(request.text)) {
     this.res.writeHead(200);
-    postMessage(dateObject.now());
+    dateUpdate();
+    postMessage(dateStart + "\n" + dateCurrent);
     this.res.end();
   }  
   else if(request.text && botRegexExams.test(request.text)) {
