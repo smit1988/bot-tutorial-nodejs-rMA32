@@ -20,9 +20,9 @@ function dateUpdate(){
   dateCurrent = dateNow;
 }
 function sleep(milliseconds){
-  var start = new Date().getTime();
+  var start = new Date();
   for(var i=0; i<1e7;i++){
-    if((new Date().getTime() - start) > milliseconds){
+    if((new Date() - start) > milliseconds){
       break;
     }
   }
@@ -194,7 +194,7 @@ function respond() {
     var rockQuotes = ["✌","✊","✋"];
     var req2 = rockQuotes[Math.floor(Math.random() * 3)];
     postMessage(req2);
-    sleep(1000);
+    sleep(5000);
     if((req1 != "✌") && (req1 != "✊") && (req1 != "✋")){
       postMessage("CALCULATING\n\n...\n\n" + req2 + " beats " + req1);
     }
