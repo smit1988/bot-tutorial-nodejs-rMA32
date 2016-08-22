@@ -3,6 +3,7 @@ var cool = require('cool-ascii-faces');
 
 var botID = process.env.BOT_ID;
 var spamcount = 0;
+var dateObject = new Date();
 
 var ryanQuotes = ["Excited",
                     "Kk",
@@ -217,10 +218,7 @@ function respond() {
   }    
   else if(request.text && botRegexTime.test(request.text)) {
     this.res.writeHead(200);
-    var dasdf = new Date();
-    for(num = 0; num < 100; num++){
-      postMessage(dasdf);
-    }
+    postMessage(dateObject);
     this.res.end();
   }  
   else if(request.text && botRegexExams.test(request.text)) {
