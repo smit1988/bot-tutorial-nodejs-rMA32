@@ -37,7 +37,7 @@ function respond() {
       botRegexEmojiSpam = /^\/emojispam/; botRegexRemind = /^\/remind me to/; botRegexGrade = /^\/grade/; botRegexTime = /^\/time/; 
   var randomCommands = [botRegexExams, botRegexNumber, botRegexHeart, botRegexKiss, botRegexRock, botRegexGif, botRegexBurn, botRegex, botRegexBall, botRegexSpook, botRegexDie,
                         botRegexCoin, botRegexMeme, botRegexSalt, botRegexPraise, botDuck, botRegexRyan, botRegexSpam, botRegexSh, botRegexEmoji, botRegexEmojiSpam,
-                        botRegexRemind, botRegexGrade];
+                        botRegexRemind, botRegexGrade, botRegexTime];
   var mockQuotes = ["911 What is your emergency?",
                     "With nowhere else to turn, he got on his knees and prayed",
                     "He was happy to answer the little girl's question. He bent down and said to her",
@@ -166,7 +166,7 @@ function respond() {
     var numbercount = 0;
     var quotelist = "";
     while(numbercount < 30){
-      quotelist = quotelist + "$~" + ryanQuotes[numbercount];
+      quotelist = quotelist + ", \"" + ryanQuotes[numbercount] + "\"";
       numbercount++;
     }
     postMessage(quotelist);
