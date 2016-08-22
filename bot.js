@@ -73,9 +73,7 @@ function respond() {
   var str = "";
   var num = 0; num1 = 0;
   
-  this.res.writeHead(200);
-  postMessage("this");
-  this.res.end();
+  dateUpdate();
   
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
@@ -228,8 +226,8 @@ function respond() {
   else if(request.text && botRegexTime.test(request.text)) {
     this.res.writeHead(200);
     dateUpdate();
-    var subtraction = dateCurrent - dateStart;
-    postMessage(dateStart + "\n" + dateCurrent + "\n" + subtraction);
+    //var subtraction = dateCurrent - dateStart; this works, just don't need it for now
+    postMessage("It is currently:\n" + dateCurrent + "\n\ncool guy has been awake since:\n" + dateStart);
     this.res.end();
   }  
   else if(request.text && botRegexExams.test(request.text)) {
