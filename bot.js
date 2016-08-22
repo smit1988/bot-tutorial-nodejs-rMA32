@@ -218,7 +218,7 @@ function respond() {
   }    
   else if(request.text && botRegexTime.test(request.text)) {
     this.res.writeHead(200);
-    postMessage(dateObject);
+    postMessage(dateObject.now());
     this.res.end();
   }  
   else if(request.text && botRegexExams.test(request.text)) {
