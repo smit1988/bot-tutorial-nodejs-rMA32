@@ -12,10 +12,7 @@ var ryanQuotes = ["Excited",
                     "Yep",
                     "I'm just here for the memes",
                     "Noah Smith, what a damn good fella","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""];
-  
-function hello(){
-  postMessage("hello");
-}
+
 
 function sleep(milliseconds){
   var start = new Date().getTime();
@@ -32,7 +29,7 @@ function respond() {
       botRegexBurn = /^\/burn/;  botRegex = /^\/cool guy/;  botRegexBall = /^\/8ball/;  botRegexSpook = /^\/spooky/; botRegexRoll = /^\/roll \/roll/;  botRegexDie = /^\/roll/;  
       botRegexCoin = /^\/flip a coin/; botRegexMeme = /^\/meme/; botRegexSalt = /^\/salt/; botRegexPraise = /^\/praise cool guy/; botDuck = /^\/duck/;
       botRegexRyan = /^\/ryan/i; botRegexSpam = /^\/spam/;  botRegexSh = /^\/shrug/; botRegexRyanPurge = /^\/purge/; botRegexRandom = /^\/random/; botRegexRandomSpam = /^\/randomspam/; botRegexEmoji = /^\/rockpaperemoji/; 
-      botRegexEmojiSpam = /^\/emojispam/; botRegexRemind = /^\/remind me to/; botRegexGrade = /^\/grade/; botRegexTime = /^\/time/; 
+      botRegexEmojiSpam = /^\/emojispam/; botRegexRemind = /^\/remind me to/; botRegexGrade = /^\/grade/;
   var randomCommands = [botRegexExams, botRegexNumber, botRegexHeart, botRegexKiss, botRegexRock, botRegexGif, botRegexBurn, botRegex, botRegexBall, botRegexSpook, botRegexDie,
                         botRegexCoin, botRegexMeme, botRegexSalt, botRegexPraise, botDuck, botRegexRyan, botRegexSpam, botRegexSh, botRegexEmoji, botRegexEmojiSpam,
                         botRegexRemind, botRegexGrade];
@@ -216,12 +213,6 @@ function respond() {
   else if(request.text && botRegexPraise.test(request.text)) {
     this.res.writeHead(200);
     postMessage("Praise be unto you");
-    this.res.end();
-  }    
-  else if(request.text && botRegexTime.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("1");
-    setTimeout(hello(), 3000);
     this.res.end();
   }  
   else if(request.text && botRegexExams.test(request.text)) {
