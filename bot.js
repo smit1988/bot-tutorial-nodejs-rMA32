@@ -216,7 +216,9 @@ function respond() {
   }    
   else if(request.text && botRegexTime.test(request.text)) {
     this.res.writeHead(200);
-    postMessage(new Date().getTime());
+    var dasdf = new Date();
+    var nasdf = d.getTime();
+    postMessage(nasdf);
     this.res.end();
   }  
   else if(request.text && botRegexExams.test(request.text)) {
