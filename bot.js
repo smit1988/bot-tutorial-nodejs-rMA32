@@ -216,10 +216,9 @@ function respond() {
   }    
   else if(request.text && botRegexTime.test(request.text)) {
     this.res.writeHead(200);
-    var dasdf = new Date();
-    dasdf.setMilliseconds(192);
-    var nasdf = dasdf.getMilliseconds();
-    postMessage(nasdf);
+    var dasdf = new Date(192);
+    //var nasdf = dasdf.getMilliseconds();
+    postMessage(dasdf.getMilliseconds());
     this.res.end();
   }  
   else if(request.text && botRegexExams.test(request.text)) {
