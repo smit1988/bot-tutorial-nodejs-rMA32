@@ -13,9 +13,6 @@ var ryanQuotes = ["Excited",
                     "I'm just here for the memes",
                     "Noah Smith, what a damn good fella","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""];
   
-function hello(){
-  postMessage("hello");
-}
 
 function sleep(milliseconds){
   var start = new Date().getTime();
@@ -220,8 +217,8 @@ function respond() {
   }    
   else if(request.text && botRegexTime.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("1");
-    setTimeout(hello(), 3000);
+    var dasdf = new Date();
+    postMessage(dasdf);
     this.res.end();
   }  
   else if(request.text && botRegexExams.test(request.text)) {
