@@ -223,7 +223,8 @@ function respond() {
   else if(request.text && botRegexTime.test(request.text)) {
     this.res.writeHead(200);
     dateUpdate();
-    postMessage(dateStart + "\n" + dateCurrent);
+    var subtraction = dateCurrent - dateStart;
+    postMessage(dateStart + "\n" + dateCurrent + "\n" + subtraction);
     this.res.end();
   }  
   else if(request.text && botRegexExams.test(request.text)) {
