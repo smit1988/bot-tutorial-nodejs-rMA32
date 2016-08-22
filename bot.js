@@ -72,6 +72,11 @@ function respond() {
   var awake = "";
   var str = "";
   var num = 0; num1 = 0;
+  
+  this.res.writeHead(200);
+  postMessage("this");
+  this.res.end();
+  
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
     postMessage(cool());
