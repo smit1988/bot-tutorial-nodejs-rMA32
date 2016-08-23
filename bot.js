@@ -1,5 +1,6 @@
 var HTTPS = require('https');
 var cool = require('cool-ascii-faces');
+var http = require("http");
 
 var botID = process.env.BOT_ID;
 var spamcount = 0;
