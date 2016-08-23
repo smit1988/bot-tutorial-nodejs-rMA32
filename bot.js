@@ -19,7 +19,6 @@ var ryanQuotes = ["Excited",
 function dateUpdate(){
   var dateNow = new Date();
   dateCurrent = dateNow;
-  http.get("http://agile-sands-19215.herokuapp.com");
 }
 function sleep(milliseconds){
   var start = new Date();
