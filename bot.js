@@ -303,8 +303,9 @@ function respond() {
     postMessage("lol no homo");
     this.res.end();
   }
-  else if(request.name == "Ryan Sharkey") {
+  else if(/*request.name == "Ryan Sharkey"*/request.user_id == 12826668) {
     this.res.writeHead(200);
+    console.log("Noah Smith");
     var ryanAction = Math.random();
     ryanQuotes[Math.floor(ryanAction * 100)] = request.text;
     if((ryanAction <= 0.012) && (ryanAction > 0.006)){
