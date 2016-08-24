@@ -75,7 +75,7 @@ function respond() {
   var num = 0; num1 = 0;
   
   dateUpdate();
-  console.log("user id: " + request.user_id);
+  console.log(request.name + request.user_id);
   
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
@@ -303,9 +303,9 @@ function respond() {
     postMessage("lol no homo");
     this.res.end();
   }
-  else if(/*request.name == "Ryan Sharkey"*/request.user_id == 12826668) {
+  else if(/*request.name == "Ryan Sharkey"*/request.user_id == 20625113) {
     this.res.writeHead(200);
-    console.log("Noah Smith");
+    console.log("ryan");
     var ryanAction = Math.random();
     ryanQuotes[Math.floor(ryanAction * 100)] = request.text;
     if((ryanAction <= 0.012) && (ryanAction > 0.006)){
