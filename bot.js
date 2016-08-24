@@ -170,7 +170,7 @@ function respond() {
       quotelist = quotelist + ", \"" + ryanQuotes[numbercount] + "\"";
       numbercount++;
     }
-    postMessage(quotelist);
+    console.log(quotelist);
     this.res.end();
   }  
   else if(request.text && botRegexRemind.test(request.text)) {
