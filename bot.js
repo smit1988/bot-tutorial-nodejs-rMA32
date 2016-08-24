@@ -75,7 +75,7 @@ function respond() {
   var num = 0; num1 = 0;
   
   dateUpdate();
-  console.log(request.user_id);
+  console.log("user id: " + request.user_id);
   
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
